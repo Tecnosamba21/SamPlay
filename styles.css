@@ -1,0 +1,100 @@
+body {
+    background-color: black;
+    color: black;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*::before, *::after {
+    box-sizing: inherit;
+}
+
+.container {
+    display: flex;
+}
+
+.menu {
+    height: 90vh;
+    border-radius: 5px;
+    margin-top: 3vh;
+    margin-left: 0vw;
+}
+
+.menu h1 {
+    writing-mode: vertical-lr;
+    color: whitesmoke;
+    font-family: 'Fira Code', serif;
+    font-size: 3vh;
+}
+
+.menu sub {
+    color: rgb(37, 171, 30);
+    font-size: 2vh;
+}
+
+.app {
+    margin-top: 3px;
+    height: 100%;
+    width: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: white;
+}
+
+
+
+.input-area:focus {
+    outline: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 1fr 1px 1fr;
+    grid-template-columns: 1fr 1px 1fr;
+    height: 100vh;
+}
+
+.gutter-col {
+    grid-row: 1/-1;
+    cursor: col-resize;
+}
+
+.gutter-col-1 {
+    grid-column: 2;
+}
+
+.gutter-row {
+    grid-column: 1/-1;
+    cursor: row-resize;
+}
+
+.gutter-row-1 {
+    grid-row: 2;
+}
+
+
+
+
+.editor {
+    position: relative;
+}
+
+
+
+.editor img {
+    position: absolute;
+    z-index: 20;
+    width: 50px;
+    height: 50px;
+    top: 40vh;
+    left: 40vw;
+}
+
