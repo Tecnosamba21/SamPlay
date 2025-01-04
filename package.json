@@ -1,7 +1,7 @@
 {
   "name": "samplay",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^6.0.5"
+    "vite": "^6.0.7"
   },
   "dependencies": {
     "gh-pages": "^6.3.0",
