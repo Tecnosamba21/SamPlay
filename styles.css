@@ -3,6 +3,7 @@ body {
     color: black;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     overflow: hidden;
+    display: flex;
 }
 
 * {
@@ -15,20 +16,8 @@ body {
     box-sizing: inherit;
 }
 
-.container {
-    display: flex;
-}
-
-.menu {
-    border-radius: 5px;
-    margin-top: .5vh;
-    margin-left: 0vw;
-    height: auto;
-}
-
 
 .app {
-    margin-top: 3px;
     height: 100%;
     width: 100%;
 }
@@ -154,4 +143,49 @@ iframe {
     top: 50%;
     transform: translateY(-50%);
     left: 0;
+}
+
+.menu {
+    height: auto;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    color: white;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    gap: 35vh;
+}
+
+.menu .one img {
+    height: 3vw;
+    margin: 1vh;
+}
+
+.menu h1 {
+    margin-left: 0.5vw;
+    font-family: 'Fira Code';
+    display: inline-block;
+    letter-spacing: 4px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+.menu h1 span {
+    color: aquamarine;
+}
+
+.menu button {
+    border: 1px solid transparent;
+    background-color: transparent;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+}
+
+.menu button img {
+    height: 3vw;
+    width: 3vw;
 }
