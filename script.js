@@ -41,7 +41,8 @@ const htmlEditor = monaco.editor.create($html, {
     minimap: { enabled: false },
     lineNumbers: 'off',
     automaticLayout: true,
-    fontFamily: 'Fira Code'
+    fontFamily: 'Cascadia Code',
+    "fontLigatures": true
 })
 
 const cssEditor = monaco.editor.create($css, {
@@ -52,7 +53,8 @@ const cssEditor = monaco.editor.create($css, {
     minimap: { enabled: false },
     lineNumbers: 'off',
     automaticLayout: true,
-    fontFamily: 'Fira Code'
+    fontFamily: 'Cascadia Code',
+    "fontLigatures": true
 })
 
 const jsEditor = monaco.editor.create($js, {
@@ -63,7 +65,8 @@ const jsEditor = monaco.editor.create($js, {
     minimap: { enabled: false },
     lineNumbers: 'off',
     automaticLayout: true,
-    fontFamily: 'Fira Code'
+    fontFamily: 'Cascadia Code',
+    "fontLigatures": true
 })
 
 const update = () => {
