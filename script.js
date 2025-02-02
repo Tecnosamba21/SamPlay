@@ -1,4 +1,3 @@
-import './styles.css'
 import Split from 'split-grid'
 import * as monaco from 'monaco-editor'
 import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker'
