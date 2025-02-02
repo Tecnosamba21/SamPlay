@@ -3,6 +3,29 @@ import * as monaco from 'monaco-editor'
 import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker'
 import CssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
 import JsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker'
+import htmlLogo from '/html.svg'
+import cssLogo from '/css.svg'
+import jsLogo from '/js.svg'
+
+document.querySelector('#app').innerHTML = `
+  <div class="grid">
+          <div id="html" class="editor">
+            <img src="${htmlLogo}" alt="html logo">
+          </div>
+          <div class="gutter-col gutter-col-1"></div>
+            <div id="js" class="editor">
+              <img src="${jsLogo}" alt="js logo">
+            </div>
+            <div id="css" class="editor">
+              <img src="${cssLogo}" alt="css logo">
+            </div>
+          <div class="gutter-row gutter-row-1"></div>
+          <div>
+            <iframe srcdoc="" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+`
 
 window.MonacoEnvironment = {
     getWorker: (_, label) => {
