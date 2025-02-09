@@ -1,9 +1,8 @@
-<link href="README-styles.css" rel="stylesheet">
 <img src="public/icon.svg" style="width: 20vw; height: auto;">
 
 # SamPlay
 
-<button class="btn btn-primary">🌐 Web</button>
+[🌐 Web](https://samplay.vercel.app)
 
 Summary:
 
