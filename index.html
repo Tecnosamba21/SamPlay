@@ -11,18 +11,98 @@
     <title>SamPlay</title>
   </head>
   <body>
+    <script src="./src/index.js" type="module"></script>
     <script>
+      const hide = (button, section) => {
+        button.classList.remove('active')
+        section.classList.add('noShow')
+      }
       const showConsole = () => {
         document.querySelector('.console').classList.toggle('noShow')
+        document.querySelector('.console-button').classList.toggle('active')
+        hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
+      }
+      const showSettings = () => {
+        document.querySelector('.settings').classList.toggle('noShow')
+        document.querySelector('.settings-button').classList.toggle('active')
+        hide(document.querySelector('.console-button'), document.querySelector('.console'))
       }
     </script>
     <div class="menu">
-      <button onclick="showConsole()" alt="console"><img src="./console.svg"></button>
+      <button onclick="showConsole()" class="menu-button console-button"><img src="./console.svg" alt="console"></button>
+      <button onclick="showSettings()" class="menu-button settings-button"><img src="./settings.svg" alt="settings"></button>
     </div>
-    <div class="console noShow">
-        <h2>Console Output</h2>
+    <div class="menu-section console noShow">
+        <h2 class="section-text">Console Output</h2>
+        <p>Show the program errors</p>
     </div>
-    <div id="app"></div>
-    <script src="./src/index.js" type="module"></script>
+    <div class="menu-section settings noShow">
+      <h2 class="section-text">Settings</h2>
+      <p>Edit the playground settings</p>
+      <form>
+        <label><u>Theme:</u></label><br>
+        <select id="theme" class="select" name="theme">
+          <option value="vs-dark" id="vs-dark">vs-dark</option>
+          <option value="vs-light" id="vs-light">vs-light</option>
+        </select><br><br>
+        <label><u>Font Size:</u></label><br>
+        <input type="number" id="font-size"><br><br>
+        <label><u>Font Ligatures:</u></label><br>
+        <select id="font-ligatures">
+          <option value="true" id="font-ligatures-true">Enabled</option>
+          <option value="false" id="font-ligatures-false">Disabled</option>
+        </select><br><br>
+        <label><u>Cursor Blinking:</u></label><br>
+        <select id="cursor-blinking">
+          <option value="blink" id="blink">Blink</option>
+          <option value="smooth" id="smooth">Smooth</option>
+          <option value="phase" id="phase">Phase</option>
+          <option value="expand" id="expand">Expand</option>
+          <option value="solid" id="solid">Solid</option>
+        </select><br><br>
+        <label><u>Line Numbers:</u></label><br>
+        <select id="line-numbers">
+          <option value="false" id="line-numbers-false">false</option>
+          <option value="true" id="line-numbers-true">true</option>
+        </select><br><br>
+        <label><u>Minimap:</u></label><br>
+        <select id="minimap">
+          <option value="false">Disabled</option>
+          <option value="true">Enabled</option>
+        </select>
+      </form>
+    </div>
+    <div id="app">
+      <div class="grid">
+        <div id="html" class="editor">
+          <img src="./html.svg" alt="html logo">
+        </div>
+        <div class="gutter-col gutter-col-1"></div>
+          <div id="js" class="editor">
+            <img src="./js.svg" alt="js logo">
+          </div>
+          <div id="css" class="editor">
+            <img src="./css.svg" alt="css logo">
+          </div>
+        <div class="gutter-row gutter-row-1"></div>
+        <div>
+          <iframe srcdoc="" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script>
+      window.addEventListener('message', ev => {
+        if (ev.data.DataDOM === "iframe") {
+          const errorDiv = document.createElement('div')
+          errorDiv.classList.add('error')
+          document.querySelector('.console').appendChild(errorDiv)
+          const error = document.createElement('h3')
+          error.textContent = ev.data.MessageError
+          errorDiv.appendChild(error)
+        }
+      })
+      document.getElementById('font-size').value = 18
+    </script>
   </body>
 </html>
