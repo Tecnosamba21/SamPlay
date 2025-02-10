@@ -17,20 +17,47 @@
         button.classList.remove('active')
         section.classList.add('noShow')
       }
+      const showDocs = () => {
+        document.querySelector('.docs').classList.toggle('noShow')
+        document.querySelector('.docs-button').classList.toggle('active')
+        hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
+        hide(document.querySelector('.console-button'), document.querySelector('.console'))
+      }
       const showConsole = () => {
         document.querySelector('.console').classList.toggle('noShow')
         document.querySelector('.console-button').classList.toggle('active')
         hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
+        hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
       }
       const showSettings = () => {
         document.querySelector('.settings').classList.toggle('noShow')
         document.querySelector('.settings-button').classList.toggle('active')
         hide(document.querySelector('.console-button'), document.querySelector('.console'))
+        hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
       }
+      const mdn = () => {window.open("https://developer.mozilla.org/en-US/")}
+      const web_dev = () => {window.open("https://web.dev")}
+      const w3schools = () => {window.open("https://w3schools.com")}
+      const github = () => {window.open("https://github.com/tecnosamba21/Code-Playground")}
     </script>
     <div class="menu">
+      <button onclick="showDocs()" class="menu-button docs-button"><img src="./docs.svg" alt="settings"></button>
       <button onclick="showConsole()" class="menu-button console-button"><img src="./console.svg" alt="console"></button>
       <button onclick="showSettings()" class="menu-button settings-button"><img src="./settings.svg" alt="settings"></button>
+    </div>
+    <div class="menu-section docs noShow">
+      <h2 class="section-text">Welcome to <span style="background: linear-gradient(to right, rgb(204, 255, 175),#51ff3e);-webkit-background-clip: text;color: transparent; ">SamPlay</span>!</h2>
+      <p>Just write some code in the writing areas to begin.</p>
+      <label><u>Documentation Links:</u></label><br>
+      <div class="links">
+        <button onclick="mdn()"><img src="./mdn.svg" alt="">MDN Docs</button>
+        <button onclick="web_dev()"><img src="./web-dev.png" alt="">Web.dev</button>
+        <button onclick="w3schools()"><img src="./w3schools.png" alt="">W3 Schools</button>
+      </div>
+      <label><u>Project Repo:</u></label><br>
+      <div id="repo">
+        <button onclick="github()"><img src="./github.svg" alt="">GitHub Repo</button>
+      </div>
     </div>
     <div class="menu-section console noShow">
         <h2 class="section-text">Console Output</h2>

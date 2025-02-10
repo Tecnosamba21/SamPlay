@@ -129,22 +129,21 @@ iframe {
     opacity: 70%;
 }
 
-.settings {
-    min-width: 15vw;
-
-    label {
+label {
         font-family: 'Fira Code';
         font-size: large;
-
         u {
             color: white;
             margin-top: .5ch;
         }
-    }
+}
+
+.menu-section {
+    min-width: 15vw;
 }
 
 .settings-button {
-    margin-top: 80%;
+    margin-top: 74%;
 }
 
 .menu button:hover {
@@ -221,4 +220,69 @@ input {
     margin-top: 4%;
     border-radius: 5px;
     width: 12vw;
+}
+
+.docs {
+    min-width: 18vw;
+    h2 {
+        margin-bottom: 1vw;
+    }
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1vw;
+        border: 2px solid grey;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 1vh;
+        color: white;
+        font-family: 'Cascadia Code';
+        font-size: large;
+        border-radius: 4px;
+        width: 14vw;
+
+        img {
+            height: 3ch;
+            width: 3ch;
+        }
+
+    }
+    button:hover {
+        animation: .5s btnHover;
+        animation-fill-mode: forwards;
+    }
+    button:not(:hover) {
+        animation: .5s notBtnHover;
+        animation-fill-mode: forwards;
+    }
+}
+
+
+@keyframes btnHover {
+    from { background-color: transparent; }
+    to { background-color: grey; }
+}
+
+@keyframes notBtnHover {
+    from { background-color: grey; }
+    to { background-color: transparent; }
+}
+
+.links {
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+
+#repo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6vh;
 }
