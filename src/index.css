@@ -16,10 +16,8 @@ body {
     box-sizing: inherit;
 }
 
-
 #app {
-    height: 100%;
-    width: 100%;
+    flex: 1;
 }
 
 iframe {
@@ -37,11 +35,15 @@ iframe {
 
 
 .grid {
+    width: 100%;
+    margin-left: 4%;
+    position: relative;
     display: grid;
     grid-template-rows: 1fr 1px 1fr;
     grid-template-columns: 1fr 1px 1fr;
     height: 100vh;
 }
+
 
 .gutter-col {
     grid-row: 1/-1;
@@ -101,23 +103,36 @@ iframe {
     to { opacity: 100%; }
 }
 
-
+.menu-holder {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
 
 .menu {
-    height: auto;
+    height: 100vh;
     width: auto;
     padding: 0;
     margin: 0;
     display: flex;
 
     color: white;
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
+    flex-direction: column;
+    gap: 63%;
 
     background-image: linear-gradient(to bottom, black, rgb(40, 40, 40));
+
+    .btn-main {
+        gap: 1vh;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .menu-button {
+    display: flex;
+    align-items: center;
+    gap: 70%;
     border: 1px solid transparent;
     background-color: transparent;
     cursor: pointer;
@@ -127,6 +142,24 @@ iframe {
     padding: 1vh;
 
     opacity: 70%;
+}
+
+.tooltiptext {
+    display: none;
+    background-color: grey;
+    height: 3ch;
+    position: absolute;
+    z-index: 1;
+    border-radius: 5px;
+    transition: opacity .5s;
+
+    font-family: 'Fira Code';
+    font-size: 2ch;
+}
+
+.menu-button:hover .tooltiptext {
+    display: inline-block;
+    opacity: 1;
 }
 
 label {
@@ -142,9 +175,6 @@ label {
     min-width: 15vw;
 }
 
-.settings-button {
-    margin-top: 74%;
-}
 
 .menu button:hover {
     opacity: 100%;
@@ -161,6 +191,7 @@ label {
 }
 
 .menu-section {
+    margin: 0;
     width: auto;
     background-image: linear-gradient(to bottom, black, rgb(40, 40, 40));
     color: white;
@@ -174,6 +205,10 @@ label {
 
 .console {
     min-width: 15vw;
+}
+
+.settings {
+    max-width: 10vw;
 }
 
 .section-text {
@@ -224,6 +259,7 @@ input {
 
 .docs {
     min-width: 18vw;
+    max-width: 10vw;
     h2 {
         margin-bottom: 1vw;
     }
@@ -255,6 +291,31 @@ input {
     button:not(:hover) {
         animation: .5s notBtnHover;
         animation-fill-mode: forwards;
+    }
+}
+
+.pack {
+    input {
+        width: 80%;
+        font-size: 2ch;
+    }
+    .search-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            height: 3ch;
+            margin-top: 1vh;
+        }
+    }
+    label {
+        font-size: 1.5ch;
+    }
+    .pack-results {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 }
 

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,82 +22,107 @@
         document.querySelector('.docs-button').classList.toggle('active')
         hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
         hide(document.querySelector('.console-button'), document.querySelector('.console'))
+        hide(document.querySelector('.pack-button'), document.querySelector('.pack'))
       }
       const showConsole = () => {
         document.querySelector('.console').classList.toggle('noShow')
         document.querySelector('.console-button').classList.toggle('active')
         hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
         hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
+        hide(document.querySelector('.pack-button'), document.querySelector('.pack'))
       }
       const showSettings = () => {
         document.querySelector('.settings').classList.toggle('noShow')
         document.querySelector('.settings-button').classList.toggle('active')
         hide(document.querySelector('.console-button'), document.querySelector('.console'))
         hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
+        hide(document.querySelector('.pack-button'), document.querySelector('.pack'))
+      }
+      const showPack = () => {
+        document.querySelector('.pack').classList.toggle('noShow')
+        document.querySelector('.pack-button').classList.toggle('active')
+        hide(document.querySelector('.console-button'), document.querySelector('.console'))
+        hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
+        hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
       }
       const mdn = () => {window.open("https://developer.mozilla.org/en-US/")}
       const web_dev = () => {window.open("https://web.dev")}
       const w3schools = () => {window.open("https://w3schools.com")}
       const github = () => {window.open("https://github.com/tecnosamba21/Code-Playground")}
     </script>
-    <div class="menu">
-      <button onclick="showDocs()" class="menu-button docs-button"><img src="./docs.svg" alt="settings"></button>
-      <button onclick="showConsole()" class="menu-button console-button"><img src="./console.svg" alt="console"></button>
-      <button onclick="showSettings()" class="menu-button settings-button"><img src="./settings.svg" alt="settings"></button>
-    </div>
-    <div class="menu-section docs noShow">
-      <h2 class="section-text">Welcome to <span style="background: linear-gradient(to right, rgb(204, 255, 175),#51ff3e);-webkit-background-clip: text;color: transparent; ">SamPlay</span>!</h2>
-      <p>Just write some code in the writing areas to begin.</p>
-      <label><u>Documentation Links:</u></label><br>
-      <div class="links">
-        <button onclick="mdn()"><img src="./mdn.svg" alt="">MDN Docs</button>
-        <button onclick="web_dev()"><img src="./web-dev.png" alt="">Web.dev</button>
-        <button onclick="w3schools()"><img src="./w3schools.png" alt="">W3 Schools</button>
+    <div class="menu-holder">
+      <aside class="menu">
+        <div class="btn-main">
+          <button onclick="showDocs()" class="menu-button docs-button"><img src="./docs.svg" alt="settings"><span class="tooltiptext" style="width: 8ch;">Document</span></button>
+          <button onclick="showConsole()" class="menu-button console-button"><img src="./console.svg" alt="console"><span class="tooltiptext" style="width: 7ch;">Console</span></button>
+          <button onclick="showPack()" class="menu-button pack-button"><img src="./pack.svg" alt="console"><span class="tooltiptext" style="width: 7ch;">Packages</span></button>
+        </div>
+        <button onclick="showSettings()" class="menu-button settings-button"><img src="./settings.svg" alt="settings"><span class="tooltiptext" style="width: 8ch;">Settings</span></button>
+      </aside>
+      <div class="menu-section docs noShow">
+        <h2 class="section-text">Welcome to <span style="background: linear-gradient(to right, rgb(175, 194, 255),#443eff);-webkit-background-clip: text;color: transparent; ">SamPlay</span>!</h2>
+        <p>Just write some code in the writing areas to begin.</p>
+        <label><u>Documentation Links:</u></label><br>
+        <div class="links">
+          <button onclick="mdn()"><img src="./mdn.svg" alt="">MDN Docs</button>
+          <button onclick="web_dev()"><img src="./web-dev.png" alt="">Web.dev</button>
+          <button onclick="w3schools()"><img src="./w3schools.png" alt="">W3 Schools</button>
+        </div>
+        <label><u>Project Repo:</u></label><br>
+        <div id="repo">
+          <button onclick="github()"><img src="./github.svg" alt="">GitHub Repo</button>
+        </div>
       </div>
-      <label><u>Project Repo:</u></label><br>
-      <div id="repo">
-        <button onclick="github()"><img src="./github.svg" alt="">GitHub Repo</button>
+      <div class="menu-section console noShow">
+          <h2 class="section-text">Console Output</h2>
+          <p>Show the program errors</p>
       </div>
-    </div>
-    <div class="menu-section console noShow">
-        <h2 class="section-text">Console Output</h2>
-        <p>Show the program errors</p>
-    </div>
-    <div class="menu-section settings noShow">
-      <h2 class="section-text">Settings</h2>
-      <p>Edit the playground settings</p>
-      <form>
-        <label><u>Theme:</u></label><br>
-        <select id="theme" class="select" name="theme">
-          <option value="vs-dark" id="vs-dark">vs-dark</option>
-          <option value="vs-light" id="vs-light">vs-light</option>
-        </select><br><br>
-        <label><u>Font Size:</u></label><br>
-        <input type="number" id="font-size"><br><br>
-        <label><u>Font Ligatures:</u></label><br>
-        <select id="font-ligatures">
-          <option value="true" id="font-ligatures-true">Enabled</option>
-          <option value="false" id="font-ligatures-false">Disabled</option>
-        </select><br><br>
-        <label><u>Cursor Blinking:</u></label><br>
-        <select id="cursor-blinking">
-          <option value="blink" id="blink">Blink</option>
-          <option value="smooth" id="smooth">Smooth</option>
-          <option value="phase" id="phase">Phase</option>
-          <option value="expand" id="expand">Expand</option>
-          <option value="solid" id="solid">Solid</option>
-        </select><br><br>
-        <label><u>Line Numbers:</u></label><br>
-        <select id="line-numbers">
-          <option value="false" id="line-numbers-false">false</option>
-          <option value="true" id="line-numbers-true">true</option>
-        </select><br><br>
-        <label><u>Minimap:</u></label><br>
-        <select id="minimap">
-          <option value="false">Disabled</option>
-          <option value="true">Enabled</option>
-        </select>
-      </form>
+      <div class="menu-section pack noShow">
+        <h2 class="section-text">Package Search</h2>
+        <div class="search-div">
+          <img src="./search.svg" alt="search">
+          <input type="text" id="pack-search" placeholder="Search...">
+        </div>
+        <div class="pack-results">
+          <label>Type the name of a pack to start</label>
+        </div>
+      </div>
+      <div class="menu-section settings noShow">
+        <h2 class="section-text">Settings</h2>
+        <p>Edit the playground settings.</p>
+        <form>
+          <label><u>Theme:</u></label><br>
+          <select id="theme" class="select" name="theme">
+            <option value="vs-dark" id="vs-dark">vs-dark</option>
+            <option value="vs-light" id="vs-light">vs-light</option>
+          </select><br><br>
+          <label><u>Font Size:</u></label><br>
+          <input type="number" id="font-size"><br><br>
+          <label><u>Font Ligatures:</u></label><br>
+          <select id="font-ligatures">
+            <option value="true" id="font-ligatures-true">Enabled</option>
+            <option value="false" id="font-ligatures-false">Disabled</option>
+          </select><br><br>
+          <label><u>Cursor Blinking:</u></label><br>
+          <select id="cursor-blinking">
+            <option value="blink" id="blink">Blink</option>
+            <option value="smooth" id="smooth">Smooth</option>
+            <option value="phase" id="phase">Phase</option>
+            <option value="expand" id="expand">Expand</option>
+            <option value="solid" id="solid">Solid</option>
+          </select><br><br>
+          <label><u>Line Numbers:</u></label><br>
+          <select id="line-numbers">
+            <option value="false" id="line-numbers-false">false</option>
+            <option value="true" id="line-numbers-true">true</option>
+          </select><br><br>
+          <label><u>Minimap:</u></label><br>
+          <select id="minimap">
+            <option value="false">Disabled</option>
+            <option value="true">Enabled</option>
+          </select>
+        </form>
+      </div>
     </div>
     <div id="app">
       <div class="grid">
@@ -131,5 +156,6 @@
       })
       document.getElementById('font-size').value = 18
     </script>
+    <script type="module" src="./src/pack_search.js"></script>
   </body>
 </html>

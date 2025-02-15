@@ -86,7 +86,7 @@ const htmlEditor = monaco.editor.create($html, {
     fontLigatures: $font_ligatures,
     cursorBlinking: $cursor_blinking,
     cursorSmoothCaretAnimation: 'on',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
 })
 
 const cssEditor = monaco.editor.create($css, {
