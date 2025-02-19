@@ -22,25 +22,31 @@
         document.querySelector('.docs-button').classList.toggle('active')
         hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
         hide(document.querySelector('.console-button'), document.querySelector('.console'))
-        hide(document.querySelector('.pack-button'), document.querySelector('.pack'))
       }
       const showConsole = () => {
         document.querySelector('.console').classList.toggle('noShow')
         document.querySelector('.console-button').classList.toggle('active')
         hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
         hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
-        hide(document.querySelector('.pack-button'), document.querySelector('.pack'))
+        hide(document.querySelector('.github-button'), document.querySelector('.github'))
       }
       const showSettings = () => {
         document.querySelector('.settings').classList.toggle('noShow')
         document.querySelector('.settings-button').classList.toggle('active')
         hide(document.querySelector('.console-button'), document.querySelector('.console'))
         hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
-        hide(document.querySelector('.pack-button'), document.querySelector('.pack'))
+        hide(document.querySelector('.github-button'), document.querySelector('.github'))
+
       }
       const showPack = () => {
-        document.querySelector('.pack').classList.toggle('noShow')
-        document.querySelector('.pack-button').classList.toggle('active')
+        hide(document.querySelector('.console-button'), document.querySelector('.console'))
+        hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
+        hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
+        hide(document.querySelector('.github-button'), document.querySelector('.github'))
+      }
+      const showGithub = () => {
+        document.querySelector('.github').classList.toggle('noShow')
+        document.querySelector('.github-button').classList.toggle('active')
         hide(document.querySelector('.console-button'), document.querySelector('.console'))
         hide(document.querySelector('.docs-button'), document.querySelector('.docs'))
         hide(document.querySelector('.settings-button'), document.querySelector('.settings'))
@@ -53,11 +59,11 @@
     <div class="menu-holder">
       <aside class="menu">
         <div class="btn-main">
-          <button onclick="showDocs()" class="menu-button docs-button"><img src="./docs.svg" alt="settings"><span class="tooltiptext" style="width: 8ch;">Document</span></button>
-          <button onclick="showConsole()" class="menu-button console-button"><img src="./console.svg" alt="console"><span class="tooltiptext" style="width: 7ch;">Console</span></button>
-          <button onclick="showPack()" class="menu-button pack-button"><img src="./pack.svg" alt="console"><span class="tooltiptext" style="width: 7ch;">Packages</span></button>
+            <button onclick="showDocs()" class="menu-button menu-button-s docs-button"><img src="./docs.svg" alt="settings"></button>
+            <button onclick="showConsole()" class="menu-button menu-button-s console-button"><img src="./console.svg" alt="console"></button>
+            <button onclick="showGithub()" class="menu-button menu-button-s github-button"><img src="./github.svg" alt="github"></button>
         </div>
-        <button onclick="showSettings()" class="menu-button settings-button"><img src="./settings.svg" alt="settings"><span class="tooltiptext" style="width: 8ch;">Settings</span></button>
+          <button onclick="showSettings()" class="menu-button menu-button-s settings-button"><img src="./settings.svg" alt="settings"></button>
       </aside>
       <div class="menu-section docs noShow">
         <h2 class="section-text">Welcome to <span style="background: linear-gradient(to right, rgb(175, 194, 255),#443eff);-webkit-background-clip: text;color: transparent; ">SamPlay</span>!</h2>
@@ -76,16 +82,6 @@
       <div class="menu-section console noShow">
           <h2 class="section-text">Console Output</h2>
           <p>Show the program errors</p>
-      </div>
-      <div class="menu-section pack noShow">
-        <h2 class="section-text">Package Search</h2>
-        <div class="search-div">
-          <img src="./search.svg" alt="search">
-          <input type="text" id="pack-search" placeholder="Search...">
-        </div>
-        <div class="pack-results">
-          <label>Type the name of a pack to start</label>
-        </div>
       </div>
       <div class="menu-section settings noShow">
         <h2 class="section-text">Settings</h2>
@@ -123,6 +119,23 @@
           </select>
         </form>
       </div>
+      <div class="menu-section github noShow">
+        <h2 class="section-text">Search a Github repo</h2>
+        <div class="github-center">
+          <input type="text" id="github-search" placeholder="Search...">
+        </div>
+        <div class="github-filters">
+          <h3>Filters:</h3>
+          🌐<select id="filter-language" name="example" title="Language">
+            <option value="">Language:</option>
+            <option value="Html">- Html</option>
+            <option value="Css">- Css</option>
+            <option value="JavaScript">- JavaScript</option>
+          </select><br>
+          🧑<input type="text" id="filter-user" placeholder="User..." title="User"><br>
+          💼<input type="text" id="filter-org" placeholder="Organization..." title="Organization"><br>
+        </div>
+      </div>
     </div>
     <div id="app">
       <div class="grid">
@@ -131,7 +144,7 @@
         </div>
         <div class="gutter-col gutter-col-1"></div>
           <div id="js" class="editor">
-            <img src="./js.svg" alt="js logo">
+            <img src="./js.svg" alt="js logo" style="left: 80%;">
           </div>
           <div id="css" class="editor">
             <img src="./css.svg" alt="css logo">
@@ -156,6 +169,6 @@
       })
       document.getElementById('font-size').value = 18
     </script>
-    <script type="module" src="./src/pack_search.js"></script>
+    <script src="./src/repo_search.js" type="module"></script>
   </body>
 </html>

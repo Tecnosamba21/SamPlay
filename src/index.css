@@ -118,7 +118,7 @@ iframe {
 
     color: white;
     flex-direction: column;
-    gap: 63%;
+    gap: 60%;
 
     background-image: linear-gradient(to bottom, black, rgb(40, 40, 40));
 
@@ -144,23 +144,6 @@ iframe {
     opacity: 70%;
 }
 
-.tooltiptext {
-    display: none;
-    background-color: grey;
-    height: 3ch;
-    position: absolute;
-    z-index: 1;
-    border-radius: 5px;
-    transition: opacity .5s;
-
-    font-family: 'Fira Code';
-    font-size: 2ch;
-}
-
-.menu-button:hover .tooltiptext {
-    display: inline-block;
-    opacity: 1;
-}
 
 label {
         font-family: 'Fira Code';
@@ -180,7 +163,7 @@ label {
     opacity: 100%;
 }
 
-.menu button img {
+.menu-button-s img {
     height: 3vw;
     width: 3vw;
 }
@@ -204,7 +187,7 @@ label {
 }
 
 .console {
-    min-width: 15vw;
+    max-width: 15vw;
 }
 
 .settings {
@@ -220,11 +203,11 @@ label {
 }
 
 .error {
-    display: flex;
+    align-self: center;
+    justify-self: center;
     background-color: rgb(233, 120, 120);
     height: auto;
-    width: auto;
-    margin: .5ch;
+    width: 90%;
     border: 3px solid red;
     border-radius: 3px;
 
@@ -346,4 +329,25 @@ input {
     justify-content: center;
     align-items: center;
     margin-top: 6vh;
+}
+
+.github-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-center input {
+    flex: .9;
+    font-size: medium;
+    margin-bottom: 3vh;
+}
+
+.github-filters {
+    margin: 1vw;
+    font-family: 'Fira Code';
+}
+
+.github-center * {
+    margin-top: 4vh;
 }
