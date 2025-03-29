@@ -85,8 +85,7 @@ const htmlEditor = monaco.editor.create($html, {
     fontFamily: 'Cascadia Code',
     fontLigatures: $font_ligatures,
     cursorBlinking: $cursor_blinking,
-    cursorSmoothCaretAnimation: 'on',
-    fontWeight: 'bold',
+    cursorSmoothCaretAnimation: 'on'
 })
 
 const cssEditor = monaco.editor.create($css, {
@@ -99,8 +98,7 @@ const cssEditor = monaco.editor.create($css, {
     fontFamily: 'Cascadia Code',
     fontLigatures: true,
     cursorBlinking: $cursor_blinking,
-    cursorSmoothCaretAnimation: 'on',
-    fontWeight: 'bold'
+    cursorSmoothCaretAnimation: 'on'
 })
 
 const jsEditor = monaco.editor.create($js, {
@@ -113,8 +111,7 @@ const jsEditor = monaco.editor.create($js, {
     fontFamily: 'Cascadia Code',
     fontLigatures: true,
     cursorBlinking: $cursor_blinking,
-    cursorSmoothCaretAnimation: 'on',
-    fontWeight: 'bold'
+    cursorSmoothCaretAnimation: 'on'
 })
 
 document.querySelector(`#${$theme}`).setAttribute('selected', true)
