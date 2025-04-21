@@ -20,3 +20,4 @@ As SamPlay is an open source project, it's open to help. If you want to contribu
 2. Open a pull request
 3. Regardless of wether your request is acepted or not, you're contributing to the project ✊
 
+[❤️ Love to codi.link](https://github.com/midudev/codi.link)
